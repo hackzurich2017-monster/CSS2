@@ -7,29 +7,91 @@ using Flurl.Http;
 using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.IO;
 
 namespace HackZurich.Utils
 {
     public static class WatsonClient
     {
-        private static async Task<Dictionary<string,string>> getWatsonAnswerWithIntent(string input)
+        public static string getWatsonAnswerBasedOnIntent(string query = "where do banana grow")
         {
-            var baseurl = "https://gateway.watsonplatform.net/conversation/api";
-            var workspace = "acceffd4-cce1-486f-ab0c-42455d31b86d";
+            string resultBasedOnIntent = "";
+
+            Dictionary<string, string> watsonAnswer = getWatsonAnswerWithIntent(query);
+
+            string watsonRes = "";
+            string watsonIntent = "";
+            string watsonEntity = "";
+
+            foreach (var item in watsonAnswer)
+            {
+                if (item.Key.Equals("Response"))
+                {
+                    watsonRes = item.Value;
+                }
+                else if (item.Key.Equals("Intent"))
+                {
+                    watsonIntent = item.Value;
+                }
+                else if (item.Key.Equals("Entity"))
+                {
+                    watsonEntity = item.Value;
+                }
+            }
+
+            switch (watsonIntent)
+            {
+                case "eatsomething":
+                    resultBasedOnIntent = watsonRes;
+                    break;
+                case "origin":
+                    resultBasedOnIntent = watsonRes;
+                    break;
+                default:
+                    resultBasedOnIntent = watsonRes;
+                    break;
+
+            }
+            return resultBasedOnIntent;
+        }
+        private static string sendSimpleRequestToWatson(string query = "where do banana grow")
+        {
+            string url = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/acceffd4-cce1-486f-ab0c-42455d31b86d/message?version=2017-05-26";
             var username = "4ac2790d-0711-442e-8962-9a2ea15ba76e";
             var password = "H1b1JZybELYj";
-            var context = null as object;
-            var message = new { input = new { text = input }, context };
+            var message = "{ \"input\":{ \"text\":\"" + query + "\"},\"context\":null}";
 
-            var resp = await baseurl
-                .AppendPathSegments("v1", "workspaces", workspace, "message")
-                .SetQueryParam("version", "2017-05-26")
-                .WithBasicAuth(username, password)
-                .AllowAnyHttpStatus()
-                .PostJsonAsync(message);
+            byte[] data = Encoding.ASCII.GetBytes(message.ToString());
 
-            var json = await resp.Content.ReadAsStringAsync();
+            WebRequest request = WebRequest.Create(url);
+            request.Credentials = new System.Net.NetworkCredential(username, password);
+            request.Method = "POST";
+            request.ContentType = "application/json; charset=utf-8";
+            request.ContentLength = data.Length;
+            using (Stream stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
 
+            string responseContent = null;
+
+            using (WebResponse response = request.GetResponse())
+            {
+                using (Stream stream = response.GetResponseStream())
+                {
+                    using (StreamReader sr99 = new StreamReader(stream))
+                    {
+                        responseContent = sr99.ReadToEnd();
+                    }
+                }
+            }
+            return responseContent;
+        }
+
+        private static Dictionary<string, string> getWatsonAnswerWithIntent(string input = "where do banana grow")
+        {
+            string json = sendSimpleRequestToWatson();
             var answer = new
             {
                 intents = default(object),
@@ -65,41 +127,42 @@ namespace HackZurich.Utils
                     }
                 }
             }
-
+            /*
             Dictionary<string, string> res = new Dictionary<string, string>();
             res.Add(output, firstIntent);
+            return res; */
+
+            string entityName = "";
+            string entityValue = "";
+            bool sawEntity = false;
+            foreach (string line in answer?.entities?.ToString().Split('\n'))
+            {
+                if (line.Contains("\"entity\""))
+                {
+                    sawEntity = true;
+                    string[] splittedLine = line.Split('\"');
+                    if (splittedLine.Length > 4)
+                    {
+                        entityName = splittedLine[3];
+                    }
+                }
+                if (line.Contains("\"value\""))
+                {
+                    string[] splittedLine = line.Split('\"');
+                    if (splittedLine.Length > 4)
+                    {
+                        entityValue = splittedLine[3];
+                        break;
+                    }
+                }
+            }
+
+            Dictionary<string, string> res = new Dictionary<string, string>();
+            res.Add("Response", output);
+            res.Add("Intent", firstIntent);
+            res.Add("Entity", entityValue);
+
             return res;
         }
-
-        public static async Task<string> getWatsonAnswerBasedOnInent(string query)
-        {
-            Dictionary<string, string> watsonAnswer = await getWatsonAnswerWithIntent(query);
-
-            string watsonRes = "";
-            string watsonintent = "";
-            foreach (var keyValPair in watsonAnswer)
-            {
-                watsonRes = keyValPair.Key;
-                watsonintent = keyValPair.Value;
-            }
-
-            string resultBasedOnIntent = "";
-            switch(watsonintent)
-            {
-                case "eatsomething":
-                    resultBasedOnIntent = watsonRes;
-                    break;
-                case "origin":
-                    resultBasedOnIntent = watsonRes;
-                    break;
-                default:
-                    resultBasedOnIntent = watsonRes;
-                    break;
-                    
-            }
-            
-            return resultBasedOnIntent;
-        }
-
     }
 }
