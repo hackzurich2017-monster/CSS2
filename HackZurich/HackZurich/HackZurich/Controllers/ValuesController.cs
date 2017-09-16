@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using Flurl;
+using Flurl.Http;
+using HackZurich.Utils;
 
 namespace HackZurich.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    //This is the BotController:
     public class ValuesController : ApiController
     {
         // GET api/values
@@ -23,8 +29,10 @@ namespace HackZurich.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public async void Post([FromBody]string input)
         {
+            string answer = await WatsonClient.getWatsonAnswer(input);
+            
         }
 
         // PUT api/values/5
