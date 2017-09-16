@@ -165,7 +165,8 @@ section.download {
     section.download .badges .badge-link:last-child {
       margin-bottom: 0; }
     section.download .badges .badge-link img {
-      height: 60px; }
+      height: 42px; 
+      width: auto;}
     @media (min-width: 768px) {
       section.download .badges .badge-link {
         display: inline-block;
@@ -361,10 +362,12 @@ footer {
 .msg_receive{
     padding-left:0;
     margin-left:0;
+    background: #33FEC6 !important;
 }
 .msg_sent{
     padding-bottom:20px !important;
     margin-right:0;
+    background: #BD98BF !important;
 }
 .messages {
   background: white;
@@ -450,4 +453,8 @@ img {
     position:fixed;
     left:0px;
     bottom:0;
+}
+
+#btn-chat {
+    cursor: pointer;
 }
