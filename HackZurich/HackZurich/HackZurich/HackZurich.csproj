@@ -230,6 +230,7 @@
     <Content Include="Content\device-mockups.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\iphone_6_plus\iphone_6_plus_white_port.png" />
+    <Content Include="Content\new-age.css" />
     <Content Include="Content\new-age.min.css" />
     <Content Include="Content\simple-line-icons.css" />
     <Content Include="Content\Site - Copy.css" />
@@ -241,6 +242,7 @@
     <Content Include="img\bg-cta.jpg" />
     <Content Include="img\bg-pattern.png" />
     <Content Include="img\demo-screen-1.jpg" />
+    <Content Include="img\dino-2026962_1280.png" />
     <Content Include="img\google-play-badge.svg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -280,6 +282,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Home\img\demo-screen-1.jpg" />
+    <Content Include="Views\Home\img\dino-2026962_1280.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

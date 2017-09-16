@@ -26,7 +26,7 @@ namespace HackZurich
                       "~/Content/font-awesome.min.css",
                       "~/Content/simple-line-icons.css",
                       "~/Content/device-mockups.min.css",
-                      "~/Content/new-age.min.css"));
+                      "~/Content/new-age.css"));
         }
     }
 }
