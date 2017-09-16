@@ -256,8 +256,14 @@
     <Content Include="img\demo-screen-1.jpg" />
     <Content Include="img\dino-2026962_1280.png" />
     <Content Include="img\dino-img.png" />
+    <Content Include="img\dino-with-camera.png" />
     <Content Include="img\google-play-badge.svg" />
     <Content Include="img\kids_on_tablets.png" />
+    <Content Include="img\miguel.png" />
+    <Content Include="img\tj-bot-opc40.png" />
+    <Content Include="img\tj-bot-opc70.png" />
+    <Content Include="img\tj-bot-opc70crop.png" />
+    <Content Include="img\tj-bot.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

@@ -19,33 +19,47 @@ $(document).on('focus', '.panel-footer input.chat_input', function (e) {
         $('#minim_chat_window').removeClass('glyphicon-plus').addClass('glyphicon-minus');
     }
 });
-$(document).on('click', '#btn-chat', function (e) {
+
+var sendReceiveMsg = function () {
     debugger;
     var message = $("#btn-input").val();
-    var sentMessage = $(".msg_container:last-child").clone();
+    var sentMessage = $($(".msg_container.base_sent")[0]).clone();
     $(sentMessage).find("p").text(message);
-    $(sentMessage).removeClass("base_sent");
-    $(sentMessage).removeClass("base_receive");
-    $(sentMessage).addClass("base_sent");
     sentMessage.appendTo(".msg_container_base");
     $("#btn-input").val("");
-    $.post("url", { data: message })
+    $.post("api/values", { "": message })
         .done(function (data) {
             debugger;
-            var recievedMsg = $(".msg_container:last-child").clone();
+            //var recievedMsg = $(".msg_container:last-child").clone();
+            var recievedMsg = $($(".msg_container.base_receive")[0]).clone();
             $(recievedMsg).find("p").text(data);
-            $(recievedMsg).removeClass("base_sent");
-            $(recievedMsg).removeClass("base_receive");
-            $(recievedMsg).addClass("base_receive");
             recievedMsg.appendTo(".msg_container_base");
+            $(".msg_container_base").scrollTop($(".msg_container_base").height() + 500);
         });
-    
-    /*var size = $(".chat-window:last-child").css("margin-left");
-    size_total = parseInt(size) + 400;
-    alert(size_total);
-    var clone = $("#chat_window_1").clone().appendTo(".container");
-    clone.css("margin-left", size_total);*/
+    /*$.ajax({
+        method: "POST",
+        url: "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/acceffd4-cce1-486f-ab0c-42455d31b86d/message?version=2017-05-26",
+        contentType: "application/json",
+        data: JSON.stringify({ text: message, name: 'NAO' })
+        .done(function (data) {
+            debugger;
+            var recievedMsg = $($(".msg_container.base_receive")[0]).clone();
+            $(recievedMsg).find("p").text(data);
+            recievedMsg.appendTo(".msg_container_base");
+        })
+    });*/
+}
+
+$(document).on('keypress', function (e) {
+    if (e.which === 13) {
+        sendReceiveMsg();
+    }
 });
+
+$(document).on('click', '#btn-chat', function (e) {
+    sendReceiveMsg();
+});
+
 $(document).on('click', '.icon_close', function (e) {
     //$(this).parent().parent().parent().parent().remove();
     $("#chat_window_1").remove();

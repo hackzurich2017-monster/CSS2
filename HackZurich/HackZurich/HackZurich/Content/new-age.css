@@ -40,6 +40,10 @@ h6 {
   padding-top: 15px;
 }
 
+h3.feature {
+    font-weight: 400;
+}
+
 h1.mb-5 {
     color: white;
 }
@@ -142,7 +146,7 @@ header.masthead {
   @media (min-width: 992px) {
     header.masthead {
       height: 100vh;
-      min-height: 815px;
+      min-height: 835px;
       padding-top: 0;
       padding-bottom: 0; }
       header.masthead .header-content {
@@ -175,8 +179,13 @@ section.download {
     section.download h2 {
       font-size: 70px; } }
 
+section.features {
+    background-image: url("../img/tj-bot-opc70crop.png");
+    padding: 50px 0 0 0; 
+}
+
 section.features .section-heading {
-  margin-bottom: 100px; }
+   }
   section.features .section-heading h2 {
     margin-top: 0; }
   section.features .section-heading p {
@@ -188,7 +197,7 @@ section.features .feature-item {
   margin: 0 auto; }
 
 section.features .device-container {
-  margin-bottom: 100px; }
+  }
   @media (min-width: 992px) {
     section.features .device-container {
       margin-bottom: 0; } }
@@ -348,11 +357,13 @@ footer {
   background: #e5e5e5;
   margin: 0;
   padding: 0 10px 10px;
-  max-height:368px;
+  min-height:381px;
+  max-height:381px;   
   overflow-x:hidden;
 }
 .top-bar {
-  background: #666;
+  max-height: 80px;
+  background: #282D32; 
   color: white;
   padding: 10px;
   position: relative;

@@ -29,10 +29,12 @@ namespace HackZurich.Controllers
         }
 
         // POST api/values
-        public async void Post([FromBody]string input)
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody]string input)
         {
-            string answer = await WatsonClient.getWatsonAnswerBasedOnInent(input);
-            
+            //string answer = await WatsonClient.getWatsonAnswerBasedOnInent(input);
+
+            return Request.CreateResponse(HttpStatusCode.OK, "Great!");
         }
 
         // PUT api/values/5
