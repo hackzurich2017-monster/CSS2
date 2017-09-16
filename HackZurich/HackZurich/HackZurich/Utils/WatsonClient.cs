@@ -86,10 +86,15 @@ namespace HackZurich.Utils
             string resultBasedOnIntent = "";
             switch(watsonintent)
             {
-                case "Goodmorning":
+                case "eatsomething":
                     resultBasedOnIntent = watsonRes;
                     break;
-                default: break;
+                case "origin":
+                    resultBasedOnIntent = watsonRes;
+                    break;
+                default:
+                    resultBasedOnIntent = watsonRes;
+                    break;
                     
             }
             
