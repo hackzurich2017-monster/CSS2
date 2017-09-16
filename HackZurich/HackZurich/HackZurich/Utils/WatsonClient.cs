@@ -12,7 +12,7 @@ namespace HackZurich.Utils
 {
     public static class WatsonClient
     {
-        public static async Task<string> getWatsonAnswer(string input)
+        private static async Task<Dictionary<string,string>> getWatsonAnswerWithIntent(string input)
         {
             var baseurl = "https://gateway.watsonplatform.net/conversation/api";
             var workspace = "acceffd4-cce1-486f-ab0c-42455d31b86d";
@@ -44,21 +44,57 @@ namespace HackZurich.Utils
 
             answer = JsonConvert.DeserializeAnonymousType(json, answer);
 
+
             var output = answer?.output?.text?.Aggregate(
                 new StringBuilder(),
                 (sb, l) => sb.AppendLine(l),
                 sb => sb.ToString());
 
-            /*
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"{resp.StatusCode}: {output}");
+            var Intents = answer?.intents;
+            string firstIntent = "";
 
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine(json);
-            Console.ResetColor();
-            */
+            foreach (string line in Intents.ToString().Split('\n'))
+            {
+                if (line.Contains("intent"))
+                {
+                    string[] splittedLine = line.Split('\"');
+                    if (splittedLine.Length > 4)
+                    {
+                        firstIntent = splittedLine[3];
+                        break;
+                    }
+                }
+            }
 
-            return $"{output}";
+            Dictionary<string, string> res = new Dictionary<string, string>();
+            res.Add(output, firstIntent);
+            return res;
         }
+
+        public static async Task<string> getWatsonAnswerBasedOnInent(string query)
+        {
+            Dictionary<string, string> watsonAnswer = await getWatsonAnswerWithIntent(query);
+
+            string watsonRes = "";
+            string watsonintent = "";
+            foreach (var keyValPair in watsonAnswer)
+            {
+                watsonRes = keyValPair.Key;
+                watsonintent = keyValPair.Value;
+            }
+
+            string resultBasedOnIntent = "";
+            switch(watsonintent)
+            {
+                case "Goodmorning":
+                    resultBasedOnIntent = watsonRes;
+                    break;
+                default: break;
+                    
+            }
+            
+            return resultBasedOnIntent;
+        }
+
     }
 }
