@@ -142,14 +142,14 @@ header.masthead {
   @media (min-width: 992px) {
     header.masthead {
       height: 100vh;
-      min-height: 775px;
+      min-height: 815px;
       padding-top: 0;
       padding-bottom: 0; }
       header.masthead .header-content {
         margin-bottom: 0;
         text-align: left; }
         header.masthead .header-content h1 {
-          font-size: 50px; }
+          font-size: 55px; }
       header.masthead .device-container {
         max-width: 325px; } }
 
@@ -211,7 +211,7 @@ section.features .feature-item {
 section.cta {
   position: relative;
   padding: 250px 0;
-  background-image: url("../img/bg-cta.jpg");
+  background-image: url("../img/kids_on_tablets.png");
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -222,13 +222,12 @@ section.cta {
     z-index: 1; }
     section.cta .cta-content h2 {
       font-size: 50px;
-      max-width: 450px;
       margin-top: 0;
       margin-bottom: 25px;
       color: white; }
     @media (min-width: 768px) {
       section.cta .cta-content h2 {
-        font-size: 80px; } }
+        font-size: 70px; } }
   section.cta .overlay {
     position: absolute;
     top: 0;
@@ -457,4 +456,22 @@ img {
 
 #btn-chat {
     cursor: pointer;
+    padding: 10px;
+}
+
+.startnowbtn {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.introducingFoodino {
+    padding-top:0px;
+    color: white;
+    padding-top:50px;
+}
+
+.personalAssistant {
+    padding-bottom:30px;
+    color:antiquewhite;
+    margin-top:-10px;
 }
