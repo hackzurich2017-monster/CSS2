@@ -32,9 +32,9 @@ namespace HackZurich.Controllers
         [HttpPost]
         public HttpResponseMessage Post([FromBody]string input)
         {
-            //string answer = await WatsonClient.getWatsonAnswerBasedOnInent(input);
+            string answer = WatsonClient.getWatsonAnswerBasedOnIntent(input);
 
-            return Request.CreateResponse(HttpStatusCode.OK, "Great!");
+            return Request.CreateResponse(HttpStatusCode.OK, answer); 
         }
 
         // PUT api/values/5

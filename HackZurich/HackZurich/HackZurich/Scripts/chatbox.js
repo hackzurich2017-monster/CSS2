@@ -27,6 +27,7 @@ var sendReceiveMsg = function () {
     $(sentMessage).find("p").text(message);
     sentMessage.appendTo(".msg_container_base");
     $("#btn-input").val("");
+    (".msg_container_base").scrollTop($(".msg_container_base").height() + 500);
     $.post("api/values", { "": message })
         .done(function (data) {
             debugger;

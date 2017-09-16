@@ -263,6 +263,7 @@
     <Content Include="img\tj-bot-opc40.png" />
     <Content Include="img\tj-bot-opc70.png" />
     <Content Include="img\tj-bot-opc70crop.png" />
+    <Content Include="img\tj-bot-opc75.png" />
     <Content Include="img\tj-bot.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

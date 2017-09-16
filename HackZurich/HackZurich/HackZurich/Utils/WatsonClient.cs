@@ -91,7 +91,7 @@ namespace HackZurich.Utils
 
         private static Dictionary<string, string> getWatsonAnswerWithIntent(string input = "where do banana grow")
         {
-            string json = sendSimpleRequestToWatson();
+            string json = sendSimpleRequestToWatson(input);
             var answer = new
             {
                 intents = default(object),
