@@ -31,7 +31,7 @@ namespace HackZurich.Controllers
         // POST api/values
         public async void Post([FromBody]string input)
         {
-            string answer = await WatsonClient.getWatsonAnswer(input);
+            string answer = await WatsonClient.getWatsonAnswerBasedOnInent(input);
             
         }
 
