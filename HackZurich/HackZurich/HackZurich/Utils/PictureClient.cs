@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-//using Google.Cloud.Vision.V1;
+using Google.Cloud.Vision.V1;
 using System.Collections;
 
 namespace HackZurich.Utils
@@ -15,7 +15,7 @@ namespace HackZurich.Utils
     {
         public static ArrayList getDescriptionOfPicture(string picturePath = "C:\\HackatonTemp\\Apple.jpg", int numItemsToReturn = 3, double threshold = 0.5)
         {
-            /*
+            
             var image = Image.FromFile(picturePath);
 
             var client = ImageAnnotatorClient.Create();
@@ -30,9 +30,9 @@ namespace HackZurich.Utils
             allDesc = allDesc.GetRange(0, min);
 
             return allDesc;
-            */
-
-            return new ArrayList();
+            
+            //return new ArrayList();
+            
         }
     }
 

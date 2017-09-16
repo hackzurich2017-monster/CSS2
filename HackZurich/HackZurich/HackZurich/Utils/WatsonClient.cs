@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Flurl;
-using Flurl.Http;
 using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -134,12 +132,12 @@ namespace HackZurich.Utils
 
             string entityName = "";
             string entityValue = "";
-            bool sawEntity = false;
+            //bool sawEntity = false;
             foreach (string line in answer?.entities?.ToString().Split('\n'))
             {
                 if (line.Contains("\"entity\""))
                 {
-                    sawEntity = true;
+   //                 sawEntity = true;
                     string[] splittedLine = line.Split('\"');
                     if (splittedLine.Length > 4)
                     {
