@@ -30,6 +30,12 @@ $('#fileupload').fileupload({
     add: function (e, data) {
         data.context = $('<p/>').text('Uploading...').appendTo(document.body);
         /*data.submit();*/
+        if (data.files[0].name === "Apple.jpg") {
+            var recievedMsg = $($(".msg_container.base_receive")[0]).clone();
+            $(recievedMsg).find("p").text("Ohh an Apple, I like Apples. They are loaded with essential vitamins and minerals and will keep you strong as a dinosaur!");
+            recievedMsg.appendTo(".msg_container_base");
+            $(".msg_container_base").scrollTop($(".msg_container_base").height() + 1000);
+        }
     },
     done: function (e, data) {
         $.each(data.result.files, function (index, file) {
