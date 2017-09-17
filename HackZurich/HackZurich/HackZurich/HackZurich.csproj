@@ -304,9 +304,6 @@
     <Content Include="img\google-play-badge.svg" />
     <Content Include="img\kids_on_tablets.png" />
     <Content Include="img\miguel.png" />
-    <Content Include="img\tj-bot-opc40.png" />
-    <Content Include="img\tj-bot-opc70.png" />
-    <Content Include="img\tj-bot-opc70crop.png" />
     <Content Include="img\tj-bot-opc75.png" />
     <Content Include="img\tj-bot.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -348,8 +345,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Home\img\app-store-badge.svg" />
     <Content Include="Views\Home\img\demo-screen-1.jpg" />
     <Content Include="Views\Home\img\dino-2026962_1280.png" />
+    <Content Include="Views\Home\img\google-play-badge.svg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -362,9 +361,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>

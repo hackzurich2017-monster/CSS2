@@ -4,13 +4,13 @@
     $(sentMessage).find("p").text(message);
     sentMessage.appendTo(".msg_container_base");
     $("#btn-input").val("");
-    (".msg_container_base").scrollTop($(".msg_container_base").height() + 500);
-    $.post("api/values", { "": message })
+    $(".msg_container_base").scrollTop($(".msg_container_base").height() + 1000);
+    $.post("../api/values", { "": message })
         .done(function (data) {
             var recievedMsg = $($(".msg_container.base_receive")[0]).clone();
             $(recievedMsg).find("p").text(data);
             recievedMsg.appendTo(".msg_container_base");
-            $(".msg_container_base").scrollTop($(".msg_container_base").height() + 500);
+            $(".msg_container_base").scrollTop($(".msg_container_base").height() + 1000);
         });
 }
 
