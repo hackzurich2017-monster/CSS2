@@ -472,7 +472,7 @@ img {
 
 .startnowbtn {
     margin-top: 20px;
-    margin-left: 50px;
+    font-size: 14px;
 }
 
 .introducingFoodino {
@@ -486,3 +486,4 @@ img {
     color:antiquewhite;
     margin-top:-10px;
 }
+                   

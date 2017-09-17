@@ -24,5 +24,19 @@ $(document).on('click', '#btn-chat', function (e) {
     sendReceiveMsg();
 });
 
-$(document).on('click', '.dino', function (e) {
+$('#fileupload').fileupload({
+    dataType: 'json',
+    replaceFileInput: false,
+    add: function (e, data) {
+        data.context = $('<p/>').text('Uploading...').appendTo(document.body);
+        /*data.submit();*/
+    },
+    done: function (e, data) {
+        $.each(data.result.files, function (index, file) {
+            $('<p/>').text(file.name).appendTo(document.body);
+        });
+        data.context.text('Upload finished.');
+    }
 });
+
+
