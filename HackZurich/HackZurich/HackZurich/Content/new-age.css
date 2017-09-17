@@ -320,7 +320,7 @@ footer {
 
 .btn-xl {
   font-size: 11px;
-  padding: 15px 45px; }
+  padding: 15px 25px; }
 
 
 
@@ -471,8 +471,8 @@ img {
 }
 
 .startnowbtn {
-    margin-top: 20px;
-    font-size: 14px;
+    margin: 30px 0px;
+    font-size: 16px;
     cursor: pointer;
 }
 
