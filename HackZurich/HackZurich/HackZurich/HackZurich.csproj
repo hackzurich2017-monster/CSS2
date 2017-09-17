@@ -295,17 +295,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\app-store-badge.svg" />
-    <Content Include="img\bg-cta.jpg" />
     <Content Include="img\bg-pattern.png" />
-    <Content Include="img\demo-screen-1.jpg" />
-    <Content Include="img\dino-2026962_1280.png" />
     <Content Include="img\dino-img.png" />
     <Content Include="img\dino-with-camera.png" />
     <Content Include="img\google-play-badge.svg" />
     <Content Include="img\kids_on_tablets.png" />
     <Content Include="img\miguel.png" />
     <Content Include="img\tj-bot-opc75.png" />
-    <Content Include="img\tj-bot.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -346,8 +342,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Home\img\app-store-badge.svg" />
-    <Content Include="Views\Home\img\demo-screen-1.jpg" />
-    <Content Include="Views\Home\img\dino-2026962_1280.png" />
     <Content Include="Views\Home\img\google-play-badge.svg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
